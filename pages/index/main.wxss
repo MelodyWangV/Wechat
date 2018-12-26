@@ -1,0 +1,14 @@
+/* pages/index/main.wxss */
+.map
+{
+ width: 100%
+}
+
+.button{
+  background-color:bisque;
+  text-align: center;
+  text-decoration:none;
+  width: 50%;
+  display: inline-block;
+  font: 10px;
+}

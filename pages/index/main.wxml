@@ -1,0 +1,18 @@
+<view style="float:none;width:100%;flex-direction:row-reverse;zoom:1;overflow:hidden;">
+<button class='button' bindtap='weather'>天气</button>
+<button class='button'>美食</button>
+</view>
+<view></view>
+<view>{{current_location}}</view>
+<view>{{current_tmp}}</view>
+<view>{{current_lifestyle}}</view>
+
+
+<view>
+<map longitude="{{longitude}}" latitude="{{latitude}}" class='.map'>
+</map>
+</view>
+
+
+
+
