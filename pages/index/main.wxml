@@ -1,15 +1,58 @@
-<view style="float:none;width:100%;flex-direction:row-reverse;zoom:1;overflow:hidden;">
+<view style='float:none;width:100%;flex-direction:row-reverse;zoom:1;overflow:hidden;'>
 <button class='button' bindtap='weather'>天气</button>
 <button class='button'>美食</button>
 </view>
-<view></view>
-<view>{{current_location}}</view>
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input"  disabled='true' placeholder="搜索 城市" bindtap="wxSearchTab"/>
+    </view>
+  </view>
+</view>
+
+<view>{{ searchValue}}</view>
+<template is="wxSearch" data="{{wxSearchData}}"/>
+<view>
+<view>{{resultMsg.basic["location"]}} {{resultMsg.basic["parent_city"]}}</view>
+<image style='height:50px;width:50px' src='{{imgSrc}}'></image>
+{{resultMsg.now['cond_txt']}} {{resultMsg.now['tmp']}}℃
+</view>
 <view>{{current_tmp}}</view>
 <view>{{current_lifestyle}}</view>
 
+<view class="table">
+<!--日期-->
+  <view class="tr bg-w">
+    <view class="th">{{resultMsg.daily_forecast[0].date}}</view>
+    <view class="th">{{resultMsg.daily_forecast[1].date}}</view>
+    <view class="th">{{resultMsg.daily_forecast[2].date}}</view>
+  </view>
+<!--温度-->
+  <view class='tr'>
+    <view class="td">{{resultMsg.daily_forecast[0].tmp_min}}℃~{{resultMsg.daily_forecast[0].tmp_max}}℃</view>
+    <view class="td">{{resultMsg.daily_forecast[1].tmp_min}}℃~{{resultMsg.daily_forecast[1].tmp_max}}℃</view>
+    <view class="td">{{resultMsg.daily_forecast[2].tmp_min}}℃~{{resultMsg.daily_forecast[2].tmp_max}}℃</view>
+  </view>
+<!--天气-->
+   <view class='tr'>
+    <view class="td bg-g">{{resultMsg.daily_forecast[0].cond_txt_d}}转{{resultMsg.daily_forecast[0].cond_txt_n}}</view>
+    <view class="td bg-g">{{resultMsg.daily_forecast[1].cond_txt_d}}转{{resultMsg.daily_forecast[1].cond_txt_n}}</view>
+    <view class="td bg-g">{{resultMsg.daily_forecast[2].cond_txt_d}}转{{resultMsg.daily_forecast[2].cond_txt_n}}</view>
+  </view>
+<!--风力-->
+  <view class='tr'>
+    <view class="td">{{resultMsg.daily_forecast[0].wind_dir}}{{resultMsg.daily_forecast[0].wind_sc}}级</view>
+    <view class="td">{{resultMsg.daily_forecast[1].wind_dir}}{{resultMsg.daily_forecast[1].wind_sc}}级</view>
+    <view class="td">{{resultMsg.daily_forecast[2].wind_dir}}{{resultMsg.daily_forecast[2].wind_sc}}级</view>
+  </view>
+</view>
+  
+
+
 
 <view>
-<map longitude="{{longitude}}" latitude="{{latitude}}" class='.map'>
+<map longitude='{{longitude}}' latitude='{{latitude}}' class='.map'>
 </map>
 </view>
 

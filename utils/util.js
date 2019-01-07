@@ -6,7 +6,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {
@@ -14,6 +14,14 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const formatDay=date=>{
+  const month=date.getMonth()+1
+  const day = date.getDate()
+ 
+  return [month, day].map(formatNumber).join('-')
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDay: formatDay
 }
