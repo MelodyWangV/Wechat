@@ -6,6 +6,21 @@
  width: 100%
 }
 
+.weather{
+  height:50px;
+  width:50px
+}
+.weathertd{
+  height:30px;
+  width:30px
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+}
+
 .button{
   background-color:bisque;
   text-align: center;

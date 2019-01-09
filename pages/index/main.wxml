@@ -1,3 +1,4 @@
+<view>
 <view style='float:none;width:100%;flex-direction:row-reverse;zoom:1;overflow:hidden;'>
 <button class='button' bindtap='weather'>天气</button>
 <button class='button'>美食</button>
@@ -15,7 +16,7 @@
 <template is="wxSearch" data="{{wxSearchData}}"/>
 <view>
 <view>{{resultMsg.basic["location"]}} {{resultMsg.basic["parent_city"]}}</view>
-<image style='height:50px;width:50px' src='{{imgSrc}}'></image>
+<image class='weather' src='{{imgSrc}}'></image>
 {{resultMsg.now['cond_txt']}} {{resultMsg.now['tmp']}}℃
 </view>
 <view>{{current_tmp}}</view>
@@ -30,15 +31,21 @@
   </view>
 <!--温度-->
   <view class='tr'>
-    <view class="td">{{resultMsg.daily_forecast[0].tmp_min}}℃~{{resultMsg.daily_forecast[0].tmp_max}}℃</view>
-    <view class="td">{{resultMsg.daily_forecast[1].tmp_min}}℃~{{resultMsg.daily_forecast[1].tmp_max}}℃</view>
-    <view class="td">{{resultMsg.daily_forecast[2].tmp_min}}℃~{{resultMsg.daily_forecast[2].tmp_max}}℃</view>
+    <view class="td"><image class='weathertd' src='../image/{{resultMsg.daily_forecast[0].cond_code_d}}.png'></image></view>
+    <view class="td"><image class='weathertd' src='../image/{{resultMsg.daily_forecast[1].cond_code_d}}.png'></image></view>
+    <view class="td"><image class='weathertd' src='../image/{{resultMsg.daily_forecast[2].cond_code_d}}.png'></image></view>
   </view>
 <!--天气-->
    <view class='tr'>
     <view class="td bg-g">{{resultMsg.daily_forecast[0].cond_txt_d}}转{{resultMsg.daily_forecast[0].cond_txt_n}}</view>
     <view class="td bg-g">{{resultMsg.daily_forecast[1].cond_txt_d}}转{{resultMsg.daily_forecast[1].cond_txt_n}}</view>
     <view class="td bg-g">{{resultMsg.daily_forecast[2].cond_txt_d}}转{{resultMsg.daily_forecast[2].cond_txt_n}}</view>
+  </view>
+   <!--温度-->
+   <view class='tr'>
+    <view class="td bg-g">{{resultMsg.daily_forecast[0].tmp_min}}~{{resultMsg.daily_forecast[0].tmp_max}}℃</view>
+    <view class="td bg-g">{{resultMsg.daily_forecast[0].tmp_min}}~{{resultMsg.daily_forecast[1].tmp_max}}℃</view>
+    <view class="td bg-g">{{resultMsg.daily_forecast[0].tmp_min}}~{{resultMsg.daily_forecast[2].tmp_max}}℃</view>
   </view>
 <!--风力-->
   <view class='tr'>
@@ -50,12 +57,14 @@
   
 
 
-
+<view class="divLine"></view>
 <view>
 <map longitude='{{longitude}}' latitude='{{latitude}}' class='.map'>
 </map>
+
+
 </view>
 
-
+</view>
 
 

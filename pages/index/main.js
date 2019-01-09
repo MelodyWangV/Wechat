@@ -61,7 +61,8 @@ Page({
               current_location: jsonText.basic["location"]+'  '+jsonText.basic["parent_city"]+'，'+jsonText.now['tmp']+'℃',
               current_tmp: '今日：'+jsonText.daily_forecast[0]["tmp_min"] + '℃~' + jsonText.daily_forecast[0]["tmp_max"] + '℃，' + jsonText.daily_forecast[0]["cond_txt_d"] +'转'+jsonText.daily_forecast[0]['cond_txt_n']+ '，' + jsonText.now['wind_dir'] + jsonText.now['wind_sc']+'级',
               current_lifestyle: '\n'+jsonText.lifestyle[1]["txt"],
-              resultMsg:jsonText
+              resultMsg:jsonText,
+              imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png"
              })
           }
         }
