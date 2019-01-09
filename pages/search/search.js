@@ -37,7 +37,7 @@ Page({
     // do your job here
     // 跳转
     wx.redirectTo({
-      url: '../index/index?searchValue=返回'  
+      url: '../index/main'  
     })
   }
 

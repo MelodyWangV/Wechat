@@ -58,23 +58,58 @@ function wxSearchInput(e) {
   // 页面数据
   var temData = __that.data.wxSearchData;
   // 寻找提示值 
-  var tipKeys = [];
+  var tipKeys=[];
+  
+  
+
   if (inputValue && inputValue.length > 0) {
-    for (var i = 0; i < __tipKeys.length; i++) {
+    wx.request({
+       url: 'https://search.heweather.net/find?',
+       data:{
+        location: inputValue,
+        key:'b0bd5e050f8140c69b7ffac111f45e3f'
+       },
+       method: 'GET',
+       header: {
+       "Content-Type": "application/json"
+       },
+     success:function(res){
+     if (res.statusCode !=200) {
+       console.log('接口调用异常' + res.statusCode);
+       __that.setData({
+         resultModalHidden: false,
+         resultMsg: '接口调用异常'
+       })
+       }
+    else
+    {
+       var json = res.data.HeWeather6[0].basic;
+      // console.log(json)
+       for (var i in json){
+         tipKeys.push(json[i].location);
+       }
+       // 更新数据
+       temData.value = inputValue;
+       temData.tipKeys = tipKeys;
+       // 更新视图
+       __that.setData({
+         wxSearchData: temData
+       });
+    }
+   }
+ })
+    
+    /*for (var i = 0; i < __tipKeys.length; i++) {
       var mindKey = __tipKeys[i];
       // 包含字符串
       if (mindKey.indexOf(inputValue) != -1) {
         tipKeys.push(mindKey);
       }
-    }
+    }*/
   }
-  // 更新数据
-  temData.value = inputValue;
-  temData.tipKeys = tipKeys;
-  // 更新视图
-  __that.setData({
-    wxSearchData: temData
-  });
+  
+  
+  console.log('tipKeys:'+tipKeys)
 }
 
 // 清空输入
