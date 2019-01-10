@@ -130,13 +130,14 @@ function wxSearchKeyTap(e) {
   search(e.target.dataset.key);
 }
 
-// 确任或者回车
+// 确认或者回车
 function wxSearchConfirm(e) {
   var key = e.target.dataset.key;
   if(key=='back'){
     __goBackFunction();
   }else{
     search(__that.data.wxSearchData.value);
+    console.log(__that.data.wxSearchData.value);
   }
 }
 

@@ -11,7 +11,7 @@
     </view>
   </view>
 </view>
-
+<view class='return' bindtap="wxReturnlocation">[回到当前位置]</view>
 <view>{{ searchValue}}</view>
 <template is="wxSearch" data="{{wxSearchData}}"/>
 <view>

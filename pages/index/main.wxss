@@ -1,6 +1,11 @@
 /* pages/index/main.wxss */
 @import "../../wxSearchView/wxSearchView.wxss";
 
+.return{
+  color:#3366FF;
+  font-size: 18px;
+  font-style:italic;
+}
 .map
 {
  width: 100%

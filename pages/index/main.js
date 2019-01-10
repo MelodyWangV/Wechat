@@ -129,6 +129,10 @@ Page({
     wx.redirectTo({
       url: '../search/search'
     })
+  },
+
+  wxReturnlocation:function(){
+    this.onLoad();
   }
   
 })
