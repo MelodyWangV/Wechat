@@ -43,7 +43,8 @@
   justify-content: center;
   height: 3rem;
   align-items: center;
-} .td {
+}
+ .td {
     width:40%;
     justify-content: center;
     text-align: center;
@@ -63,4 +64,23 @@
 }
 .bg-g{
   background: #E6F3F9;
+}
+.tr1{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 1rem;
+  align-items: center;
+}
+.th1 {
+  width: 40%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 1rem;
+  align-items: center;
+}
+.tmp{
+  color:#FF0000;
 }

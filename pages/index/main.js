@@ -1,14 +1,15 @@
 // pages/index/main.js
 const app=getApp()
 var util = require('../../utils/util.js');
-
+var time = util.formatTime(new Date);
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
-    time: util.formatTime(new Date),
+   
+    getdate:util.getDates(3,time),
     searchValue:''
   },
 
@@ -62,7 +63,7 @@ Page({
               current_tmp: '今日：'+jsonText.daily_forecast[0]["tmp_min"] + '℃~' + jsonText.daily_forecast[0]["tmp_max"] + '℃，' + jsonText.daily_forecast[0]["cond_txt_d"] +'转'+jsonText.daily_forecast[0]['cond_txt_n']+ '，' + jsonText.now['wind_dir'] + jsonText.now['wind_sc']+'级',
               current_lifestyle: '\n'+jsonText.lifestyle[1]["txt"],
               resultMsg:jsonText,
-              imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png"
+              imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
              })
           }
         }
