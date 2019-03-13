@@ -1,17 +1,19 @@
 <!--index.wxml-->
+<view class='main'>
+<text class='version'>version 1.0.2.1</text>
 <view class="container">
-  <view class="userinfo">
+  <!--<view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
+  </view>-->
+  <view>
+  <button class='button' bindtap='getWeather'>Hi，天气~</button>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <view>{{ msg }}</view>
-    <button bindtap='clickme'>
-    点我
-    </button>
+</view>
 </view>

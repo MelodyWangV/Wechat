@@ -25,11 +25,15 @@ Page({
         var latitude=res.latitude //纬度
         var longitude=res.longitude //经度
         var location //位置
+        var nowlocation //当前位置
+        var isShow
         if (options && options.searchValue) {
           location = options.searchValue
+          isShow=true
         }
         else {
           location = longitude + ',' + latitude
+          isShow=false;
         }
         _this.setData({latitude:latitude,
         longitude:longitude,
@@ -57,6 +61,9 @@ Page({
             }
             //var jsonText=JSON.stringify(res.data)
             var jsonText = res.data.HeWeather6[0]
+            if (location == jsonText.basic["location"]) {
+              nowlocation = true
+            }
             _this.setData({
               imgSrc: '../image/' + jsonText.daily_forecast[0]["cond_code_d"]+".png",
               current_location: jsonText.basic["location"]+'  '+jsonText.basic["parent_city"]+'，'+jsonText.now['tmp']+'℃',
@@ -64,7 +71,9 @@ Page({
               current_lifestyle: '\n'+jsonText.lifestyle[1]["txt"],
               resultMsg:jsonText,
               imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
+              isShowReturn: isShow,
              })
+            
           }
         }
         )
@@ -77,7 +86,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+     console.log("渲染完成")
   },
 
   /**
@@ -121,11 +130,13 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   huoqu:function(e){
     wx.getLocation({
       success: function(res) {},
     })
   },
+
   wxSearchTab:function(){
     wx.redirectTo({
       url: '../search/search'

@@ -11,13 +11,14 @@
     </view>
   </view>
 </view>
-<view class='return' bindtap="wxReturnlocation">[回到当前位置]</view>
+<view wx:if="{{isShowReturn==true}}"> 
+<view   class='return' bindtap="wxReturnlocation">[回到当前位置]</view>
+</view>
 <view>{{ searchValue}}</view>
-<template is="wxSearch" data="{{wxSearchData}}"/>
 <view>
 <view>{{resultMsg.basic["location"]}} {{resultMsg.basic["parent_city"]}}</view>
 <image class='weather' src='{{imgSrc}}'></image>
-{{resultMsg.now['cond_txt']}}，<text class='tmp'>{{resultMsg.now['tmp']}}℃</text>
+{{resultMsg.now['cond_txt']}}  <text class='tmp'>{{resultMsg.now['tmp']}}℃</text>
 </view>
 
 <view>{{current_tmp}}</view>

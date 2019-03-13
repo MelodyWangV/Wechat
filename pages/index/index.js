@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Weclome to my world',
+    motto: '不管天气如何，每天都要有个好心情~☺',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -51,7 +51,10 @@ Page({
       hasUserInfo: true
     })
   },
-  clickme:function(){
-      this.setData({msg:"this is a click event!"})
+  getWeather:function(e)
+  {
+    wx.redirectTo({
+      url: 'main',
+    })
   }
 })
