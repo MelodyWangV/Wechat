@@ -9,7 +9,7 @@ Page({
    */
   data: {
    
-    getdate:util.getDates(3,time),
+   // time:util.getDates(3,time),
     searchValue:''
   },
 
@@ -18,7 +18,7 @@ Page({
    */
   onLoad: function (options) {
     var _this=this;
-    
+   // console.log(util.getDates(3,time)[2]["week"]);
     wx.getLocation({
       type:'wgs84',
       success: function(res) {
@@ -72,6 +72,7 @@ Page({
               resultMsg:jsonText,
               imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
               isShowReturn: isShow,
+              laterweek: util.getDates(3, time)[2]["week"]
              })
             
           }
