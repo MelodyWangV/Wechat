@@ -2,13 +2,15 @@
 const app=getApp()
 var util = require('../../utils/util.js');
 var time = util.formatTime(new Date);
+var week = util.getDates(util.formatTime(new Date));
 Page({
   
   /**
    * 页面的初始数据
    */
   data: {
-   
+    time:time,
+    week:week[2]["week"],
    // time:util.getDates(3,time),
     searchValue:''
   },
@@ -71,8 +73,7 @@ Page({
               current_lifestyle: '\n'+jsonText.lifestyle[1]["txt"],
               resultMsg:jsonText,
               imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
-              isShowReturn: isShow,
-              laterweek: util.getDates(3, time)[2]["week"]
+              isShowReturn: isShow
              })
             
           }
@@ -87,7 +88,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-     console.log("渲染完成")
+    // console.log("渲染完成")
   },
 
   /**
