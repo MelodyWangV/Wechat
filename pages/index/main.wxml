@@ -34,7 +34,7 @@
   <view class='tr1'>
   <text class="th1">今天</text>
   <text class="th1">明天</text>
-  <text class='th1'>{{week}}</text>
+  <text class='th1'>{{laterweek}}</text>
   </view>
 <!--温度-->
   <view class='tr'>

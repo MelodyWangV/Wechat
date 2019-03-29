@@ -1,18 +1,20 @@
 // pages/index/main.js
 const app=getApp()
 var util = require('../../utils/util.js');
-var time = util.formatTime(new Date);
-var week = util.getDates(util.formatTime(new Date));
+//var time = util.formatTime(new Date);
+//var week = util.getDates(util.formatTime(new Date));
+//我也不知道为什么 如果先用一个引用js里面的的方法，得到time，再用一次其他的方法得到week
+//再手机就显示不出来第二次引用的方法得到的结果，开发工具可以显示出来
 Page({
   
   /**
    * 页面的初始数据
    */
   data: {
-    time:time,
-    week:week[2]["week"],
+   // week:week,   
    // time:util.getDates(3,time),
     searchValue:''
+    
   },
 
   /**
@@ -20,7 +22,7 @@ Page({
    */
   onLoad: function (options) {
     var _this=this;
-   // console.log(util.getDates(3,time)[2]["week"]);
+   
     wx.getLocation({
       type:'wgs84',
       success: function(res) {
@@ -39,7 +41,8 @@ Page({
         }
         _this.setData({latitude:latitude,
         longitude:longitude,
-        location:location})
+        location:location
+        })
 
         
         //var that = this;
@@ -73,7 +76,8 @@ Page({
               current_lifestyle: '\n'+jsonText.lifestyle[1]["txt"],
               resultMsg:jsonText,
               imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
-              isShowReturn: isShow
+              isShowReturn: isShow,
+              laterweek: util.getDates(jsonText.daily_forecast[0].date)
              })
             
           }
