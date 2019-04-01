@@ -13,6 +13,7 @@ Page({
   data: {
    // week:week,   
    // time:util.getDates(3,time),
+    loadingHidden:false,
     searchValue:''
     
   },
@@ -77,7 +78,8 @@ Page({
               resultMsg:jsonText,
               imageSrc1: '../image/' + jsonText.daily_forecast[0]["cond_code_d"] + ".png",
               isShowReturn: isShow,
-              laterweek: util.getDates(jsonText.daily_forecast[0].date)
+              laterweek: util.getDates(jsonText.daily_forecast[0].date),
+              loadingHidden:true
              })
             
           }
